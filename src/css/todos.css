@@ -1,12 +1,13 @@
 .Todos {
-    margin: 35px;
+    margin: 20px;
 }
 .Todos table {
     text-align: center;
+    font-size: 15px;
 }
-.Todos button {
+#addTodo {
     float:right;
 }
-.Todos span {
+#todotitle {
     font-size: 25px;
 }

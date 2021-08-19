@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { Provider } from 'react-redux'
+import store from './store'
 import Todos from "./components/Todos";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
 
 import "./css/main.css";
 
+
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
       <Router>
         <div className="App">
           <Switch>
@@ -27,6 +31,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+      </Provider>
     );
   }
 }
