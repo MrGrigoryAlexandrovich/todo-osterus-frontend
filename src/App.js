@@ -1,11 +1,35 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import Todos from "./components/Todos";
+import Create from "./components/Create";
+import Edit from "./components/Edit";
 
-export default class App extends Component {
+import "./css/main.css";
+
+class App extends Component {
   render() {
     return (
-      <div>
-        <h1 className="text-info text-center">Project started</h1>
-      </div>
-    )
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/todos" />
+            </Route>
+            <Route path="/todos" exact>
+              <Todos />
+            </Route>
+            <Route path="/todos/create">
+              <Create />
+            </Route>
+            <Route path="/todos/edit/:id">
+              <Edit />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
   }
 }
+
+export default App;
+

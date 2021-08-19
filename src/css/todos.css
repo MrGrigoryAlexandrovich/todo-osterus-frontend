@@ -1,0 +1,12 @@
+.Todos {
+    margin: 35px;
+}
+.Todos table {
+    text-align: center;
+}
+.Todos button {
+    float:right;
+}
+.Todos span {
+    font-size: 25px;
+}
