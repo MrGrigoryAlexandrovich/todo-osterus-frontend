@@ -1,0 +1,9 @@
+.Create {
+    margin: 50px;
+}
+.Create form {
+    width: 350px;
+}
+.Create .btn-primary {
+    float:right;
+}
