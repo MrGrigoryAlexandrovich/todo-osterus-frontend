@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link} from "react-router-dom";
 import { connect } from 'react-redux';
 import { getTodos } from '../actions/todoActions';
@@ -57,7 +58,10 @@ import "../css/todos.css";
     )
     }
 }
-
+Todos.propTypes = {
+  getTodos: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired
+}
 const mapStateToProps = state => ({
   todos: state.todos.items
 })
