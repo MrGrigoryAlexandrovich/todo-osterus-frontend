@@ -1,4 +1,4 @@
-import { GET_TODOS, NEW_TODO, DELETE_TODO } from "../actions/types";
+import { GET_TODOS, NEW_TODO,CHANGE_STATUS, DELETE_TODO } from "../actions/types";
 
 const initialState = {
   items: [],
@@ -17,11 +17,20 @@ export default function (state = initialState, action) {
         ...state,
         item: action.payload,
       };
+    case CHANGE_STATUS: {
+      const index = state.items.findIndex(todo => todo.id !==                                                                        action.payload); //finding index of the item
+      const newArray = [...state.items]; 
+      newArray[index].status = action.payload.status
+      return { 
+       ...state, 
+       items: newArray,
+      }
+     }      
     case DELETE_TODO:
-     return  {
-       ...state,
-       items: state.items.filter(todo=>todo.id !== action.payload)
-     }
+      return {
+        ...state,
+        items: state.items.filter((todo) => todo.id !== action.payload),
+      };
     default:
       return state;
   }
