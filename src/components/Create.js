@@ -24,21 +24,23 @@ class Create extends Component {
     this.setState({description: event.target.value});
   }
   handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.name+ ' ' +this.state.description);
     event.preventDefault();
-    const post = {
+    const todo = {
       name: this.state.name,
       description: this.state.description
     };
 
-    this.props.createTodo(post);
+    this.props.createTodo(todo.name,todo.description);
+    this.setState({name: ""});
+    this.setState({description: ""});
+    alert('New To Do Created');
   }
   render() {
     return (
       <div className="Create">
       <h1 className="text-center text-light">Create new To Do</h1> 
       <hr></hr>
-      <form className="mx-auto d-block">
+      <form className="mx-auto d-block" onSubmit={this.handleSubmit}>
 <div className="form-group">
 <label htmlFor="name" className="text-light">Name</label>
 <input type="name" className="form-control" id="name"placeholder="Enter name" value={this.state.name} onChange={this.handleChangeName} required/>
@@ -50,7 +52,7 @@ class Create extends Component {
 <hr></hr>
 <div className="btn-group mx-auto d-block" role="group" aria-label="Basic example">
 <Link to="/"><button type="button" className="btn btn-secondary">Cancel</button></Link>
-<button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Add new</button>
+<button type="submit" className="btn btn-primary">Add new</button>
 </div>
 </form>
 
