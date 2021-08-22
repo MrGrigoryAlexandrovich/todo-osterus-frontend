@@ -66,7 +66,6 @@ class Create extends Component {
               placeholder="Description"
               value={this.state.description}
               onChange={this.handleChangeDescription}
-              required
             />
           </div>
           <hr></hr>

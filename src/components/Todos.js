@@ -46,9 +46,7 @@ class Todos extends Component {
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Status</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Done / Undo</th>
+                <th scope="col">Actions</th>
               </tr>
               {this.props.todos.map((item) => (
                 <tr key={item.id}>
@@ -57,10 +55,8 @@ class Todos extends Component {
                   <td>{item.status}</td>
                   {item.status === "open" ? (
                     <>
-                      <td onClick={() => this.delete(item.id)}>
-                        <button className="btn text-danger">Delete</button>
-                      </td>
                       <td>
+                        <button  onClick={() => this.delete(item.id)} className="btn text-danger">Delete</button>
                         <Link
                           to={"todos/edit/" + item.id}
                           onClick={() =>
@@ -69,14 +65,13 @@ class Todos extends Component {
                         >
                           <button className="btn text-info">Edit</button>
                         </Link>
-                      </td>
-                      <td>
                         <button
                           className="btn text-success"
                           onClick={() => this.updateStatus(item.id)}
                         >
                           Done
                         </button>
+
                       </td>
                     </>
                   ) : (
@@ -85,11 +80,7 @@ class Todos extends Component {
                         <button className="btn text-danger disabled">
                           Delete
                         </button>
-                      </td>
-                      <td>
                         <button className="btn text-info disabled">Edit</button>
-                      </td>
-                      <td>
                         <button
                           className="btn text-warning"
                           onClick={() => this.updateStatus(item.id)}
