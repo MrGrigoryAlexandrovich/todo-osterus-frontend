@@ -12,7 +12,7 @@
 ### `npm start` 
 
 ## Demo
-### `https://todo-osterus.netlify.app/`
+### https://todo-osterus.netlify.app/
 
 ## Author
 ## `Ahmed Cvrčak - CA DEV` 
