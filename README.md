@@ -6,13 +6,13 @@
 ### git clone https://github.com/MrGrigoryAlexandrovich/todo-osterus-frontend.git
 
 ## NPM INSTALL - in project folder
-### npm i`
+### `npm i`
 
 ## NPM START - in project folder
-### npm start
+### `npm start` 
 
 ## Demo
-### ://todo-osterus.netlify.app/
+### `https://todo-osterus.netlify.app/`
 
 ## Author
-### `Ahmed Cvrčak - CA DEV` 
+## `Ahmed Cvrčak - CA DEV` 
