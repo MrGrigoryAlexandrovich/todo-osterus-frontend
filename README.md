@@ -14,5 +14,8 @@
 ## Demo
 ### https://todo-osterus.netlify.app/
 
+## Backend project
+### https://github.com/MrGrigoryAlexandrovich/todo-osterus-backend
+
 ## Author
 ## `Ahmed Cvrčak - CA DEV` 
