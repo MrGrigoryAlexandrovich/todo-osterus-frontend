@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getTodos, deleteTodo, changeStatus } from "../actions/todoActions";
-import { todosSelector } from "../selectors/selectors";
+import { todosSelector, todoSelector } from "../selectors/selectors";
 
 import "../css/todos.css";
 
@@ -16,6 +16,10 @@ class Todos extends Component {
   }
   updateStatus(id) {
     this.props.changeStatus(id);
+  }
+  updateTodoSelector(name, description) {
+    this.props.todo.name = name;
+    this.props.todo.description = description;
   }
   render() {
     return (
@@ -57,7 +61,12 @@ class Todos extends Component {
                         <button className="btn text-danger">Delete</button>
                       </td>
                       <td>
-                        <Link to={"todos/edit/" + item.id}>
+                        <Link
+                          to={"todos/edit/" + item.id}
+                          onClick={() =>
+                            this.updateTodoSelector(item.name, item.description)
+                          }
+                        >
                           <button className="btn text-info">Edit</button>
                         </Link>
                       </td>
@@ -114,6 +123,7 @@ Todos.propTypes = {
 };
 const mapStateToProps = (state) => ({
   todos: todosSelector(state),
+  todo: todoSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => {
