@@ -34,8 +34,6 @@ class Edit extends Component {
       description: this.state.description,
     };
     this.props.updateTodo(id, todo.name, todo.description);
-    this.setState({ name: "" });
-    this.setState({ description: "" });
     alert("To Do Edited");
   }
   render() {
@@ -89,7 +87,7 @@ class Edit extends Component {
               </button>
             </Link>
             <button type="submit" className="btn alert-primary">
-              Edit
+              Save
             </button>
           </div>
         </form>

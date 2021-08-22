@@ -10,6 +10,7 @@ import store from "./store";
 import Todos from "./components/Todos";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
+import PageNotFound from "./components/PageNotFound";
 import "./css/main.css";
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
               <Route path="/todos/edit/:id">
                 <Edit />
               </Route>
+              < Route component={PageNotFound}></Route>
             </Switch>
           </div>
         </Router>
