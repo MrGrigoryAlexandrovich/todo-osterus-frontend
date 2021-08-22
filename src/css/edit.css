@@ -1,11 +1,11 @@
-.Create {
+.Edit {
     margin: 50px;
     padding: 30px;
 }
-.Create form {
+.Edit form {
     width: 300px;
     height: 260px;
 }
-.Create .btn-success {
+.Edit .alert-primary {
     float:right;
 }

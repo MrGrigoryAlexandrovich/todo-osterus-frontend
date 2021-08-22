@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getTodos, deleteTodo ,changeStatus} from "../actions/todoActions";
+import { getTodos, deleteTodo, changeStatus } from "../actions/todoActions";
 import { todosSelector } from "../selectors/selectors";
 
 import "../css/todos.css";
@@ -14,8 +14,8 @@ class Todos extends Component {
   delete(id) {
     this.props.deleteTodo(id);
   }
-  updateStatus(id){
-    this.props.changeStatus(id)
+  updateStatus(id) {
+    this.props.changeStatus(id);
   }
   render() {
     return (
@@ -27,10 +27,7 @@ class Todos extends Component {
           style={{ width: "80px" }}
         />
         <Link to="/todos/create">
-          <button
-            className="btn btn-primary mx-auto d-block"
-            id="addTodo"
-          >
+          <button className="btn btn-primary mx-auto d-block" id="addTodo">
             Add new
           </button>
         </Link>
@@ -60,10 +57,17 @@ class Todos extends Component {
                         <button className="btn text-danger">Delete</button>
                       </td>
                       <td>
-                        <button className="btn text-info">Edit</button>
+                        <Link to={"todos/edit/" + item.id}>
+                          <button className="btn text-info">Edit</button>
+                        </Link>
                       </td>
                       <td>
-                        <button className="btn text-success" onClick={()=>this.updateStatus(item.id)}>Done</button>
+                        <button
+                          className="btn text-success"
+                          onClick={() => this.updateStatus(item.id)}
+                        >
+                          Done
+                        </button>
                       </td>
                     </>
                   ) : (
@@ -77,7 +81,12 @@ class Todos extends Component {
                         <button className="btn text-info disabled">Edit</button>
                       </td>
                       <td>
-                        <button className="btn text-warning" onClick={()=>this.updateStatus(item.id)}>Undo</button>
+                        <button
+                          className="btn text-warning"
+                          onClick={() => this.updateStatus(item.id)}
+                        >
+                          Undo
+                        </button>
                       </td>
                     </>
                   )}
@@ -111,9 +120,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeStatus: (id) => {
       dispatch(changeStatus(id));
-    },
-    updateTodo: (id,name,description) => {
-      dispatch(changeStatus(name,description,id));
     },
     deleteTodo: (id) => {
       dispatch(deleteTodo(id));

@@ -1,11 +1,17 @@
-import { GET_TODOS, NEW_TODO,CHANGE_STATUS, DELETE_TODO } from "../actions/types";
+import {
+  GET_TODOS,
+  NEW_TODO,
+  CHANGE_STATUS,
+  UPDATE_TODO,
+  DELETE_TODO,
+} from "../actions/types";
 
 const initialState = {
   items: [],
   item: {},
 };
 
-export default function (state = initialState, action) {
+const mainState =  (state = initialState, action) =>{
   switch (action.type) {
     case GET_TODOS:
       return {
@@ -18,14 +24,28 @@ export default function (state = initialState, action) {
         item: action.payload,
       };
     case CHANGE_STATUS: {
-      const index = state.items.findIndex(todo => todo.id !==                                                                        action.payload); //finding index of the item
-      const newArray = [...state.items]; 
-      newArray[index].status = action.payload.status
-      return { 
-       ...state, 
-       items: newArray,
-      }
-     }      
+      const index = state.items.findIndex(
+        (todo) => todo.id === action.payload.id
+      );
+      const newArray = [...state.items];
+      newArray[index].status = action.payload.status;
+      return {
+        ...state,
+        items: newArray,
+      };
+    }
+    case UPDATE_TODO: {
+      const index = state.items.findIndex(
+        (todo) => todo.id !== action.payload.id
+      );
+      const newArray = [...state.items];
+      newArray[index].name = action.payload.name;
+      newArray[index].description = action.payload.description;
+      return {
+        ...state,
+        items: newArray,
+      };
+    }
     case DELETE_TODO:
       return {
         ...state,
@@ -35,3 +55,5 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+export default mainState;
