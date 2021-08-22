@@ -1,18 +1,18 @@
 # To Do Application
 
-## How to run
+## How to run ?
 
 ## GIT CLONE
-### `git clone https://github.com/MrGrigoryAlexandrovich/todo-osterus-frontend.git`
+### git clone https://github.com/MrGrigoryAlexandrovich/todo-osterus-frontend.git
 
 ## NPM INSTALL - in project folder
-### `npm i` 
+### npm i`
 
 ## NPM START - in project folder
-### `npm start` 
+### npm start
 
 ## Demo
-### `https://todo-osterus.netlify.app/`
+### ://todo-osterus.netlify.app/
 
 ## Author
-## `Ahmed Cvrčak - CA DEV` 
+### `Ahmed Cvrčak - CA DEV` 
